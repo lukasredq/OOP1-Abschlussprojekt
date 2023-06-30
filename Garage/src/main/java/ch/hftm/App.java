@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class App extends Application {
 
     private static Scene scene;
+    public static boolean win = false;
 
     public static void main(String[] args) {
         Pilot pilot1 = new Pilot("Lüku", 23,100,true);
@@ -140,13 +141,19 @@ public class App extends Application {
         //--------------//
         if(pilot1.getGewonnen() >= 3){
             System.out.println("Glückwunsch sie haben gewonnen");
+            win = true;
         }
         launch();
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        if(win == true){
+            scene = new Scene(loadFXML("primary"), 640, 480);    
+        }
+        else{
+            scene = new Scene(loadFXML("secondary"), 640, 480);
+        }
         stage.setScene(scene);
         stage.show();
     }
