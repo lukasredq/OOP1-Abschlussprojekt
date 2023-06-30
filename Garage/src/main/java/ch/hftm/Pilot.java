@@ -5,6 +5,7 @@ public class Pilot {
     private int erfahrung;
     private boolean ergeiz;
     private String name;
+    private int gewonnen;
 
     public Pilot(String name, int alter, int erfahrung, boolean ergeiz) {
         this.alter = alter;
@@ -50,6 +51,14 @@ public class Pilot {
         this.name = name;
     }
 
+    public int getGewonnen(){
+        return gewonnen;
+    }
+
+    public void setGewonnen(int gewonnen){
+        this.gewonnen = gewonnen;
+    }
+
     public void fahren(Fahrzeug fahrzeug, int distanz) {
         System.out.println("Der Pilot fährt " + distanz + " km mit dem Fahrzeug:");
         System.out.println("Typ: " + fahrzeug.getTyp());
@@ -76,11 +85,12 @@ public class Pilot {
         System.out.println("Erfahrung: " + gegner.getErfahrung());
         System.out.println("Ergeiz: " + gegner.isErgeiz());
 
-        double pilotWert = this.erfahrung * (fahrzeug.getGewicht() / fahrzeug.getLeistung());
-        double gegnerWert = gegner.getErfahrung() * (fahrzeuggegner.getGewicht() / fahrzeuggegner.getLeistung());
+        double pilotWert = this.erfahrung * (fahrzeug.getLeistung() / fahrzeug.getGewicht());
+        double gegnerWert = gegner.getErfahrung() * (fahrzeuggegner.getLeistung() / fahrzeuggegner.getGewicht());
 
         if (pilotWert > gegnerWert) {
             System.out.println("Der Pilot gewinnt das Rennen!");
+            gewonnen++;
         } else if (pilotWert < gegnerWert) {
             System.out.println("Der Gegner gewinnt das Rennen!");
         } else {

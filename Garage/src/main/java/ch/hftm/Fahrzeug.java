@@ -1,4 +1,7 @@
 package ch.hftm;
+
+import java.util.Scanner;
+
 public class Fahrzeug {
     private String typ;
     private String marke;
@@ -16,10 +19,7 @@ public class Fahrzeug {
         this.gewicht = gewicht;
     }
 
-    public Fahrzeug(String typ, String marke, String modell) {
-        this.typ = typ;
-        this.marke = marke;
-        this.modell = modell;
+    public Fahrzeug() {
         this.kilometerstand = 0;
         this.leistung = 0;
         this.gewicht = 0;
