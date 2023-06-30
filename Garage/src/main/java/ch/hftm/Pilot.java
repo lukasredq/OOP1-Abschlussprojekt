@@ -58,7 +58,9 @@ public class Pilot {
 
         int alterKilometerstand = fahrzeug.getKilometerstand();
         fahrzeug.setKilometerstand(alterKilometerstand + distanz);
+        erfahrung = erfahrung + distanz;
 
+        System.out.println("Neue Erfahrung des Piloten: " + erfahrung);
         System.out.println("Neuer Kilometerstand: " + fahrzeug.getKilometerstand());
     }
 }
