@@ -17,22 +17,14 @@ public class App extends Application {
 
     public static void main(String[] args) {
         // Test der Fahrzeug Klasse
-        Fahrzeug R6 = new Fahrzeug("Enduro", "Yamaha", "YZF-R6", 5000, 120, 180);
-        System.out.println("Alter Typ: " + R6.getTyp());
-        R6.setTyp("Sport");
-        System.out.println("Alter Typ: " + R6.getTyp());
-        
+        Fahrzeug R6 = new Fahrzeug("Sport", "Yamaha", "YZF-R6", 5000, 120, 180);
+        Fahrzeug zx6r = new Fahrzeug("Sport", "kawasaki", "zx6r", 5000, 115, 185);
+
         // Test der Pilot Klasse
         Pilot pilot1 = new Pilot("ädu",30, 10, true);
-        System.out.println("Alter des Piloten 1: " + pilot1.getAlter());
-        System.out.println("Erfahrung des Piloten 1: " + pilot1.getErfahrung());
-        System.out.println("Ergeiz des Piloten 1: " + pilot1.isErgeiz());
-
         Pilot pilot2 = new Pilot("peschä");
-        System.out.println("Alter des Piloten 2: " + pilot2.getAlter());
-        System.out.println("Erfahrung des Piloten 2: " + pilot2.getErfahrung());
-        System.out.println("Ergeiz des Piloten 2: " + pilot2.isErgeiz());
         pilot1.fahren(R6, 100);
+        pilot1.rennenFahren(R6, pilot2, R6);
 
         launch();
     }

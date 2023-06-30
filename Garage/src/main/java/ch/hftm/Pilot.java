@@ -63,5 +63,29 @@ public class Pilot {
         System.out.println("Neue Erfahrung des Piloten: " + erfahrung);
         System.out.println("Neuer Kilometerstand: " + fahrzeug.getKilometerstand());
     }
+    
+    public void rennenFahren(Fahrzeug fahrzeug, Pilot gegner, Fahrzeug fahrzeuggegner) {
+        System.out.println("Rennen zwischen Pilot und Gegner:");
+        System.out.println("Pilot:");
+        System.out.println("Alter: " + this.alter);
+        System.out.println("Erfahrung: " + this.erfahrung);
+        System.out.println("Ergeiz: " + this.ergeiz);
+
+        System.out.println("Gegner:");
+        System.out.println("Alter: " + gegner.getAlter());
+        System.out.println("Erfahrung: " + gegner.getErfahrung());
+        System.out.println("Ergeiz: " + gegner.isErgeiz());
+
+        double pilotWert = this.erfahrung * (fahrzeug.getGewicht() / fahrzeug.getLeistung());
+        double gegnerWert = gegner.getErfahrung() * (fahrzeuggegner.getGewicht() / fahrzeuggegner.getLeistung());
+
+        if (pilotWert > gegnerWert) {
+            System.out.println("Der Pilot gewinnt das Rennen!");
+        } else if (pilotWert < gegnerWert) {
+            System.out.println("Der Gegner gewinnt das Rennen!");
+        } else {
+            System.out.println("Das Rennen endet unentschieden!");
+        }
+    }
 }
 
